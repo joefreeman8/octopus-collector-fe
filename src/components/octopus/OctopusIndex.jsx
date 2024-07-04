@@ -27,7 +27,7 @@ export default function OctopusIndex() {
     <div className="h-screen">
 
       {octopusData && (
-        <div className="mt-10">
+        <div className="pt-10">
           <h1 className="font-bold text-4xl text-center">Find Your Octopus</h1>
           <div className="m-10 grid grid-cols-3 gap-4">
             {octopusData.map(octopus => (
@@ -35,8 +35,9 @@ export default function OctopusIndex() {
                 <div className="card bg-base-200 shadow-xl">
                   <div className="card-body">
                     <h2 className="card-title flex justify-center">
-                      {octopus.name} <span className="text-sm">({octopus.scientific_name})</span>
+                      {octopus.name}
                     </h2>
+                    <span className="text-sm text-center">({octopus.scientific_name})</span>
                   </div>
                 </div>
               </Link>

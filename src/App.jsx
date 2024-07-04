@@ -7,14 +7,14 @@ import OctopusIndex from './components/octopus/OctopusIndex'
 function App() {
 
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/octopus' element={<OctopusIndex />} />
-        </Routes>
-      </Router>
-    </>
+    // <div data-theme="aqua" className='h-full'>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/octopus' element={<OctopusIndex />} />
+      </Routes>
+    </Router>
+    // </div >
   )
 }
 
