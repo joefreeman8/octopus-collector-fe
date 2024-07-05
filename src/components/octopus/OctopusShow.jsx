@@ -1,7 +1,7 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import SightingShow from "../sightings/SightingShow"
+import { getSingleOctopus } from "../../lib/api"
 
 
 export default function OctopusShow() {
@@ -13,7 +13,7 @@ export default function OctopusShow() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:8000/api/octopus/${id}/`)
+        const { data } = await getSingleOctopus(id)
         setOctopusData(data)
       } catch (e) {
         console.log(e)

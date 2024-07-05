@@ -14,6 +14,7 @@ export default {
       },
       colors: {
         'nord-accent': '#88c0d0',
+        'nord-warning': '#EBCB8B'
       },
     },
   },

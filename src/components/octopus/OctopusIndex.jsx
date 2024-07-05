@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import axios from "axios"
+import { getAllOctopus } from "../../lib/api"
 
 
 export default function OctopusIndex() {
 
   const [octopusData, setOctopusData] = useState(null)
 
-
   async function fetchOctopusData() {
     try {
-      const { data } = await axios.get('http://localhost:8000/api/octopus')
+      const { data } = await getAllOctopus()
+      console.log(data)
       setOctopusData(data)
     } catch (e) {
       console.log(e)
