@@ -11,14 +11,19 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      }
+      },
     },
   },
   plugins: [
     daisyui,
   ],
   daisyui: {
-    themes: ["light", "dark", "cupcake", 'sunset', 'aqua'],
+    themes: [
+      "aqua",
+      "light",
+      "dark",
+      "nord"
+    ],
   },
 }
 

@@ -32,7 +32,7 @@ export default function OctopusIndex() {
           <div className="m-10 grid grid-cols-3 gap-4">
             {octopusData.map(octopus => (
               <Link key={octopus.id} to={`/octopus/${octopus.id}`}>
-                <div className="card bg-base-200 shadow-xl">
+                <div data-theme="nord" className="card bg-accent opacity-80 shadow-xl ">
                   <div className="card-body">
                     <h2 className="card-title flex justify-center">
                       {octopus.name}
