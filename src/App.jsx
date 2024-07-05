@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Home from './components/common/Home'
 import OctopusIndex from './components/octopus/OctopusIndex'
+import OctopusShow from './components/octopus/OctopusShow'
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/octopus/:id' element={<OctopusShow />} />
           <Route path='/octopus' element={<OctopusIndex />} />
         </Routes>
       </Router>

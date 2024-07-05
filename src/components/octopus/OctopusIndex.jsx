@@ -28,11 +28,11 @@ export default function OctopusIndex() {
 
       {octopusData && (
         <div className="pt-10">
-          <h1 className="font-bold text-4xl text-center">Find Your Octopus</h1>
+          <h1 className="font-bold text-success-content opacity-80 text-4xl text-center">Select an Octopus</h1>
           <div className="m-10 grid grid-cols-3 gap-4">
             {octopusData.map(octopus => (
               <Link key={octopus.id} to={`/octopus/${octopus.id}`}>
-                <div data-theme="nord" className="card bg-accent opacity-80 shadow-xl ">
+                <div data-theme="nord" className="card bg-accent opacity-80 shadow-xl hover:bg-warning hover:bg-opacity-100">
                   <div className="card-body">
                     <h2 className="card-title flex justify-center">
                       {octopus.name}

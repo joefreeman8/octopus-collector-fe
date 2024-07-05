@@ -12,6 +12,9 @@ export default {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'nord-accent': '#88c0d0',
+      },
     },
   },
   plugins: [
