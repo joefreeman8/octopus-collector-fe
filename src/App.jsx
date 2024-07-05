@@ -5,6 +5,7 @@ import Home from './components/common/Home'
 import OctopusIndex from './components/octopus/OctopusIndex'
 import OctopusShow from './components/octopus/OctopusShow'
 import Navbar from './components/common/Navbar'
+import Register from './components/auth/Register'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/octopus/:id' element={<OctopusShow />} />
           <Route path='/octopus' element={<OctopusIndex />} />
+          <Route path='/sign-up' element={<Register />} />
         </Routes>
       </Router>
 

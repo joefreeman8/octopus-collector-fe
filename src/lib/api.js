@@ -9,3 +9,4 @@ export function getAllOctopus() {
 export function getSingleOctopus(id) {
   return axios.get(`${baseUrl}/octopus/${id}`)
 }
+
