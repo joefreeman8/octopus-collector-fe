@@ -45,7 +45,7 @@ export default function OctopusShow() {
                   <div key={sighting.id}>
                     <p>{sighting.location}</p>
                     <p>{sighting.date}</p>
-                    <p>{sighting.owner.username}</p>
+                    <p>{sighting.sighting_owner.username}</p>
                   </div>
                 ))}
               </div>
