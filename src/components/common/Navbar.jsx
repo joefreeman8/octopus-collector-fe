@@ -9,6 +9,7 @@ export default function Navbar() {
       </div>
       <div className="navbar-end gap-3">
         <Link to='/sign-up'>Sign Up</Link>
+        <Link to='/login'>Login</Link>
       </div>
     </nav>
   )

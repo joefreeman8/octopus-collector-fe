@@ -7,6 +7,7 @@ import OctopusIndex from './components/octopus/OctopusIndex'
 import OctopusShow from './components/octopus/OctopusShow'
 import Navbar from './components/common/Navbar'
 import Register from './components/auth/Register'
+import Login from './components/auth/Login'
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
           <Route path='/octopus/:id' element={<OctopusShow />} />
           <Route path='/octopus' element={<OctopusIndex />} />
           <Route path='/sign-up' element={<Register toast={toast} />} />
+          <Route path='/login' element={<Login toast={toast} />} />
         </Routes>
       </Router>
 
