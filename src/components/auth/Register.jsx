@@ -47,7 +47,7 @@ export default function Register({ toast }) {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <form className="w-full max-w-lg" onSubmit={handleSubmit}>
-        <div className="card card-compact bg-base-100 shadow-xl p-4">
+        <div className="card card-compact bg-base-100 bg-opacity-80 shadow-xl p-4">
           <h3 className="text-2xl font-bold">Sign Up</h3>
           <div className="form-control mt-4">
             <label className="label">
@@ -99,19 +99,19 @@ export default function Register({ toast }) {
               name="password_confirmation"
               type="password"
               className="input input-bordered"
-              placeholder="Enter Password"
+              placeholder="Confirm Password"
               value={formData.password_confirmation}
               required
               onChange={handleChange}
             />
           </div>
           <div className="form-control mt-6">
-            <button type="submit" className="btn btn-accent">
+            <button data-theme="nord" type="submit" className="btn btn-warning opacity-80">
               Submit
             </button>
-            <p className="mt-2 text-center">Already Have an Account?&nbsp;
+            <p className="mt-2 text-center">Already have an account?&nbsp;
               <Link to='/login'>
-                <span className="underline">Login here</span>
+                <span className="underline">Login here.</span>
               </Link>
             </p>
           </div>

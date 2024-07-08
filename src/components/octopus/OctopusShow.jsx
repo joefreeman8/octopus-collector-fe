@@ -28,7 +28,7 @@ export default function OctopusShow() {
 
 
   return (
-    <>
+    <div className="h-screen">
       {octopusData && (
         <div className="flex justify-center items-center">
           <div className="text-center flex flex-col md:flex-row gap-4 justify-center md:items-start">
@@ -51,6 +51,6 @@ export default function OctopusShow() {
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }
