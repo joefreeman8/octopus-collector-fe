@@ -28,7 +28,7 @@ export default function OctopusIndex() {
 
       {octopusData && (
         <div className="pt-10">
-          <h1 className="font-bold text-success-content opacity-80 text-4xl text-center">Select an Octopus</h1>
+          <h1 className="font-bold text-success-content opacity-80 text-4xl text-center">Browse Octopus</h1>
           <div className="m-10 grid grid-cols-3 gap-4">
             {octopusData.map(octopus => (
               <Link key={octopus.id} to={`/octopus/${octopus.id}`}>

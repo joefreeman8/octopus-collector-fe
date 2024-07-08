@@ -33,7 +33,7 @@ export default function OctopusShow() {
         <div className="flex justify-center items-center">
           <div className="text-center flex flex-col md:flex-row gap-4 justify-center md:items-start">
             <div className="p-4 md:w-1/2">
-              <div className="card bg-base-100 mb-5 shadow-xl">
+              <div className="card bg-base-100 bg-opacity-90 mb-5 shadow-xl">
                 <div className="card-body flex items-center">
                   <h1 className="text-white card-title text-center w-fit">
                     {octopusData.name} <span className="text-sm">({octopusData.scientific_name})</span>
