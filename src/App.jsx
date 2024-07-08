@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
 
 import Home from './components/common/Home'
 import OctopusIndex from './components/octopus/OctopusIndex'
@@ -25,7 +26,7 @@ function App() {
   ]
 
   return (
-    <div data-theme="aqua" className='h-screen bg-custom-gradient'>
+    <div data-theme="aqua" className='h-full bg-custom-gradient'>
       {/* Generate Bubbles on background */}
       {bubbles.map((bubbleClass, idx) => (
         <div key={idx} className={`bubble ${bubbleClass}`}></div>
@@ -34,11 +35,12 @@ function App() {
 
       <Router>
         <Navbar />
+        <ToastContainer className='mt-14' />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/octopus/:id' element={<OctopusShow />} />
           <Route path='/octopus' element={<OctopusIndex />} />
-          <Route path='/sign-up' element={<Register />} />
+          <Route path='/sign-up' element={<Register toast={toast} />} />
         </Routes>
       </Router>
 

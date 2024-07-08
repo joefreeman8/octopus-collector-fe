@@ -10,3 +10,10 @@ export function getSingleOctopus(id) {
   return axios.get(`${baseUrl}/octopus/${id}`)
 }
 
+
+
+// * AUTH
+
+export function register(formData) {
+  return axios.post(`${baseUrl}/auth/register/`, formData)
+}
