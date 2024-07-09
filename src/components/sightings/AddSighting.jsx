@@ -55,7 +55,7 @@ export default function AddSighting({ id, setSightingAdded }) {
     { location: 'Java Sea' },
     { location: 'Red Sea' },
   ]
-  console.log(formData)
+
 
   return (
     <>
