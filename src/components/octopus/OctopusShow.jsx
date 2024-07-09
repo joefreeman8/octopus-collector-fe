@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import SightingShow from "../sightings/SightingShow"
 import { getSingleOctopus } from "../../lib/api"
+import AddSighting from "../sightings/AddSighting"
 
 
 export default function OctopusShow() {
@@ -46,6 +47,7 @@ export default function OctopusShow() {
             <div className="card px-4 md:w-1/2">
               <div className="card card-body space-y-4 flex justify-center items-center md:w-full" >
                 <SightingShow sightings={octopusData.sightings} />
+                <AddSighting id={id} />
               </div>
             </div>
           </div>

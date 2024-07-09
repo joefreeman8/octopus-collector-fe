@@ -23,6 +23,8 @@ export default function Login({ toast }) {
     e.preventDefault()
     try {
       const { data } = await login(formData)
+      localStorage.setItem('token', data.token)
+
       toast.info(data.message, {
         position: "top-right",
         autoClose: 5000,
