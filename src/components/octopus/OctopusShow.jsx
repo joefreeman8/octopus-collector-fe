@@ -30,7 +30,7 @@ export default function OctopusShow() {
   return (
     <div className="h-screen">
       {octopusData && (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center mt-24">
           <div className="text-center flex flex-col md:flex-row gap-4 justify-center md:items-start">
             <div className="p-4 md:w-1/2">
               <div className="card bg-base-100 bg-opacity-90 mb-5 shadow-xl">

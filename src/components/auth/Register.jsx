@@ -44,8 +44,8 @@ export default function Register({ toast }) {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <form className="w-full max-w-lg" onSubmit={handleSubmit}>
+    <div className="flex justify-center min-h-screen">
+      <form className="w-full max-w-lg mt-24" onSubmit={handleSubmit}>
         <div className="card card-compact bg-base-100 bg-opacity-80 shadow-xl p-4">
           <h3 className="text-2xl font-bold">Sign Up!</h3>
           <div className="form-control mt-4">

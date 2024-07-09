@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 import { login } from "../../lib/api"
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -12,6 +13,7 @@ export default function Login({ toast }) {
   }
 
   const [formData, setFormData] = useState(initialState)
+  const navigate = useNavigate()
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -24,13 +26,14 @@ export default function Login({ toast }) {
       toast.info(data.message, {
         position: "top-right",
         autoClose: 5000,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
         theme: "colored",
       })
+      navigate('/octopus')
     } catch (err) {
       const errorMessage = err.response.data
       Object.values(errorMessage).forEach(error => {
@@ -50,8 +53,8 @@ export default function Login({ toast }) {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <form className="w-full max-w-lg" onSubmit={handleSubmit}>
+    <div className="flex justify-center min-h-screen">
+      <form className="w-full max-w-lg mt-24" onSubmit={handleSubmit}>
         <div className="card card-compact bg-base-100 bg-opacity-80 shadow-xl p-4">
           <h3 className="text-2xl font-bold">Login!</h3>
           <div className="form-control mt-4">

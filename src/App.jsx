@@ -27,7 +27,7 @@ function App() {
   ]
 
   return (
-    <div data-theme="aqua" className='h-full bg-custom-gradient'>
+    <div data-theme="aqua" className='h-full bg-custom-gradient overflow-auto'>
       {/* Generate Bubbles on background */}
       {bubbles.map((bubbleClass, idx) => (
         <div key={idx} className={`bubble ${bubbleClass}`}></div>
