@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { postSighting } from "../../lib/api"
+import { toast } from "react-toastify"
 
-export default function AddSighting({ id }) {
+export default function AddSighting({ id, setSightingAdded }) {
 
   const initialState = {
     date: '',
@@ -14,11 +15,23 @@ export default function AddSighting({ id }) {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
-      console.log(formData)
       const response = await postSighting(formData)
       console.log(response)
+      setSightingAdded(true)
     } catch (err) {
-      console.log(err)
+      const errorMessage = err.response.data
+      Object.values(errorMessage).forEach(error => {
+        toast.info(error[0], {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      })
     }
   }
 

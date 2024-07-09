@@ -8,6 +8,7 @@ import AddSighting from "../sightings/AddSighting"
 export default function OctopusShow() {
 
   const [octopusData, setOctopusData] = useState(null)
+  const [sightingAdded, setSightingAdded] = useState(false)
 
   const { id } = useParams()
 
@@ -16,12 +17,13 @@ export default function OctopusShow() {
       try {
         const { data } = await getSingleOctopus(id)
         setOctopusData(data)
+        setSightingAdded(false)
       } catch (e) {
         console.log(e)
       }
     }
     fetchData()
-  }, [id])
+  }, [id, sightingAdded])
 
 
   console.log(octopusData)
@@ -47,7 +49,7 @@ export default function OctopusShow() {
             <div className="card px-4 md:w-1/2">
               <div className="card card-body space-y-4 flex justify-center items-center md:w-full" >
                 <SightingShow sightings={octopusData.sightings} />
-                <AddSighting id={id} />
+                <AddSighting id={id} setSightingAdded={setSightingAdded} />
               </div>
             </div>
           </div>
