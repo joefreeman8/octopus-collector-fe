@@ -1,5 +1,5 @@
 
-export default function SightingShow({ sightings, sightingsThisWeek, sightingsThisMonth }) {
+export default function SightingShow({ sightings, sightingsThisWeek, sightingsThisMonth, octopusName }) {
 
 
   function formatDate(dateStr) {
@@ -13,15 +13,15 @@ export default function SightingShow({ sightings, sightingsThisWeek, sightingsTh
       <div>
         {sightingsThisWeek ? (
           <div data-theme='nord' className="card card-normal bg-accent p-4">
-            Octopus Spotted This Week
+            The {octopusName} has been spotted this week!
           </div>
         ) : sightingsThisMonth ? (
           <div data-theme='nord' className="card card-normal bg-info text-black p-4">
-            Octopus Seen This Month
+            The {octopusName} has been seen in the last 28 days!
           </div>
         ) : (
           <div data-theme='nord' className="card card-normal bg-error p-4">
-            No Octopus
+            The {octopusName} has not been spotted for a while!
           </div>
         )}
       </div>

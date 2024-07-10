@@ -26,10 +26,6 @@ export default function OctopusShow() {
   }, [id, sightingAdded])
 
 
-  console.log(octopusData)
-
-
-
   return (
     <div className="h-screen">
       {octopusData && (
@@ -39,7 +35,10 @@ export default function OctopusShow() {
               <div className="card bg-base-100 bg-opacity-90 mb-5 shadow-xl">
                 <div className="card-body flex items-center">
                   <h1 className="text-white card-title text-center w-fit">
-                    {octopusData.name} <span className="text-sm">({octopusData.scientific_name})</span>
+                    {octopusData.name}
+                    <span className="text-sm">
+                      ({octopusData.scientific_name})
+                    </span>
                   </h1>
                   <p><strong className="text-white">Bio:</strong> {octopusData.description}</p>
                   <p><strong className="text-white">Life span:</strong> {octopusData.life_span} years.</p>
@@ -52,6 +51,7 @@ export default function OctopusShow() {
                   sightings={octopusData.sightings}
                   sightingsThisWeek={octopusData.sightings_this_week}
                   sightingsThisMonth={octopusData.sightings_this_month}
+                  octopusName={octopusData.name}
                 />
                 <AddSighting id={id} setSightingAdded={setSightingAdded} />
               </div>
