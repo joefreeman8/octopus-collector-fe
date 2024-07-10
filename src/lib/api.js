@@ -19,7 +19,11 @@ export function getSingleOctopus(id) {
 }
 
 export function deleteSingleOctopus(id) {
-  return axios.delete(`${baseUrl}/octopus/${id}`, headers())
+  return axios.delete(`${baseUrl}/octopus/${id}/`, headers())
+}
+
+export function editSingleOctopus(id, formData) {
+  return axios.put(`${baseUrl}/octopus/${id}/`, formData, headers())
 }
 
 // * SIGHTING
