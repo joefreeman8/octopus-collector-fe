@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
-import { toast } from "react-toastify"
+import { useParams } from "react-router-dom"
 
 import SightingShow from "../sightings/SightingShow"
 import AddSighting from "../sightings/AddSighting"
-import { deleteSingleOctopus, getSingleOctopus } from "../../lib/api"
+import { getSingleOctopus } from "../../lib/api"
 import { isAdmin } from "../../lib/auth"
+import OctopusDelete from "./OctopusDelete"
 
 
 export default function OctopusShow() {
 
   const [octopusData, setOctopusData] = useState(null)
   const [sightingAdded, setSightingAdded] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const { id } = useParams()
-  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,42 +28,6 @@ export default function OctopusShow() {
     fetchData()
   }, [id, sightingAdded])
 
-  async function handleDelete() {
-    try {
-      await deleteSingleOctopus(id)
-      toast.info(`${octopusData.name}, has been deleted`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      })
-      navigate('/octopus')
-    } catch (err) {
-      const error = err.response.data.detail
-      toast.info(error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      })
-    }
-  }
-
-  function openDeleteModal() {
-    setIsModalOpen(true)
-  }
-
-  function closeDeleteModal() {
-    setIsModalOpen(false)
-  }
 
 
   return (
@@ -73,24 +35,8 @@ export default function OctopusShow() {
       {octopusData && (
         <>
           {isAdmin() && (
-            <>
-              <button onClick={openDeleteModal} className="btn btn-error">Delete</button>
-              {isModalOpen && (
-                <div className="modal modal-open sm:modal-middle">
-                  <div className="modal-box">
-                    <button onClick={closeDeleteModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                    <h2 className="font-bold text-lg">{octopusData.name}</h2>
-                    <p className="py-4">Are you sure you want to delete this Octopus?</p>
-                    <div className="modal-action">
-                      <button onClick={handleDelete} className="btn btn-error">Delete</button>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </>
+            <OctopusDelete id={id} octopusName={octopusData.name} />
           )}
-
-
           <div className="flex justify-center items-center mt-24">
             <div className="text-center flex flex-col md:flex-row gap-4 justify-center md:items-start">
               <div className="p-4 md:w-1/2">
