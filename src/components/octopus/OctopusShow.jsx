@@ -5,6 +5,7 @@ import { toast } from "react-toastify"
 import SightingShow from "../sightings/SightingShow"
 import AddSighting from "../sightings/AddSighting"
 import { deleteSingleOctopus, getSingleOctopus } from "../../lib/api"
+import { isAdmin } from "../../lib/auth"
 
 
 export default function OctopusShow() {
@@ -62,7 +63,11 @@ export default function OctopusShow() {
     <div className="h-screen">
       {octopusData && (
         <>
-          <button onClick={handleDelete} className="btn btn-error">Delete</button>
+          {isAdmin() &&
+            <button onClick={handleDelete} className="btn btn-error">Delete</button>
+          }
+
+
           <div className="flex justify-center items-center mt-24">
             <div className="text-center flex flex-col md:flex-row gap-4 justify-center md:items-start">
               <div className="p-4 md:w-1/2">
