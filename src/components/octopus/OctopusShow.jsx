@@ -48,7 +48,11 @@ export default function OctopusShow() {
             </div>
             <div className="card px-4 md:w-1/2">
               <div className="card card-body space-y-4 flex justify-center items-center md:w-full" >
-                <SightingShow sightings={octopusData.sightings} />
+                <SightingShow
+                  sightings={octopusData.sightings}
+                  sightingsThisWeek={octopusData.sightings_this_week}
+                  sightingsThisMonth={octopusData.sightings_this_month}
+                />
                 <AddSighting id={id} setSightingAdded={setSightingAdded} />
               </div>
             </div>
