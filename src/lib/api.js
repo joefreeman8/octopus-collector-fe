@@ -1,11 +1,12 @@
 import axios from "axios"
+import { getToken } from "./auth"
 
 const baseUrl = 'http://localhost:8000/api'
-const getToken = localStorage.getItem('token')
+
 
 function headers() {
   return {
-    headers: { Authorization: `Bearer ${getToken}` },
+    headers: { Authorization: `Bearer ${getToken()}` },
   }
 }
 
@@ -16,6 +17,12 @@ export function getAllOctopus() {
 export function getSingleOctopus(id) {
   return axios.get(`${baseUrl}/octopus/${id}/`)
 }
+
+export function deleteSingleOctopus(id) {
+  return axios.delete(`${baseUrl}/octopus/${id}`, headers())
+}
+
+// * SIGHTING
 
 export function postSighting(formData) {
   return axios.post(`${baseUrl}/sightings/`, formData, headers())

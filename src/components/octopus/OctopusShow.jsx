@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import SightingShow from "../sightings/SightingShow"
-import { getSingleOctopus } from "../../lib/api"
-import AddSighting from "../sightings/AddSighting"
-import axios from "axios"
 import { toast } from "react-toastify"
+
+import SightingShow from "../sightings/SightingShow"
+import AddSighting from "../sightings/AddSighting"
+import { deleteSingleOctopus, getSingleOctopus } from "../../lib/api"
 
 
 export default function OctopusShow() {
@@ -29,12 +29,17 @@ export default function OctopusShow() {
   }, [id, sightingAdded])
 
   async function handleDelete() {
-    const token = localStorage.getItem('token')
     try {
-      await axios.delete(`http://localhost:8000/api/octopus/${id}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+      await deleteSingleOctopus(id)
+      toast.info(`${octopusData.name}, has been deleted`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       })
       navigate('/octopus')
     } catch (err) {
