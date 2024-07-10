@@ -52,6 +52,7 @@ export default function OctopusEdit({
   function closeModal() {
     setIsModalOpen(false)
   }
+
   return (
     <>
       <div className="bordered">
@@ -60,15 +61,34 @@ export default function OctopusEdit({
           <div className="md:flex gap-2">
             <label className="input input-bordered flex items-center gap-2 text-sm text-base-content" htmlFor="name">
               <span className="font-bold">Name:</span>
-              <input type="text" id="name" className="grow" name="name" value={formData.name} onChange={handleChange} />
+              <input
+                type="text"
+                id="name"
+                className="grow"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+              />
             </label>
             <label className="input input-bordered flex items-center gap-2 text-sm" htmlFor="scientific_name">
               <span className="font-bold">Scientific Name:</span>
-              <input type="text" id="scientific_name" className="grow" name="scientific_name" value={formData.scientific_name} onChange={handleChange} />
+              <input
+                type="text"
+                id="scientific_name"
+                className="grow"
+                name="scientific_name"
+                value={formData.scientific_name}
+                onChange={handleChange}
+              />
             </label>
           </div>
           <textarea className="mt-2 textarea textarea-bordered placeholder-base-content" placeholder="Bio" name="description" value={formData.description} onChange={handleChange}></textarea>
-          <select className="mt-2 select select-bordered w-full" name="life_span" value={formData.life_span} onChange={handleChange}>
+          <select
+            className="mt-2 select select-bordered w-full"
+            name="life_span"
+            value={formData.life_span}
+            onChange={handleChange}
+          >
             <option disabled className="font-bold">Maximum Lifespan</option>
             <option value="1">One Year</option>
             <option value="2">Two Years</option>

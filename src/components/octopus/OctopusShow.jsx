@@ -32,7 +32,8 @@ export default function OctopusShow() {
     fetchData()
   }, [id, sightingAdded, isComplete])
 
-  function editButton() {
+
+  function activateEditMode() {
     setIsEditMode(true)
   }
 
@@ -47,7 +48,7 @@ export default function OctopusShow() {
                 isEditMode ? (
                   <button className="btn btn-warning mr-2 btn-disabled" > Edit</button>
                 ) : (
-                  <button onClick={editButton} className="btn btn-warning mr-2">Edit</button>
+                  <button onClick={activateEditMode} className="btn btn-warning mr-2">Edit</button>
                 )
               }
               <OctopusDelete id={id} octopusName={octopusData.name} />
