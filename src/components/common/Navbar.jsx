@@ -8,8 +8,8 @@ export default function Navbar() {
         <Link className="hover:text-nord-warning" to='/octopus'>View Octopus</Link>
       </div>
       <div className="navbar-end gap-3">
-        <Link to='/sign-up'>Sign Up</Link>
-        <Link to='/login'>Login</Link>
+        <Link className="hover:text-nord-warning" to='/sign-up'>Sign Up</Link>
+        <Link className="hover:text-nord-warning" to='/login'>Login</Link>
       </div>
     </nav>
   )
