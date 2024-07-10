@@ -12,6 +12,7 @@ export default function OctopusShow() {
 
   const [octopusData, setOctopusData] = useState(null)
   const [sightingAdded, setSightingAdded] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const { id } = useParams()
   const navigate = useNavigate()
@@ -58,14 +59,36 @@ export default function OctopusShow() {
     }
   }
 
+  function openDeleteModal() {
+    setIsModalOpen(true)
+  }
+
+  function closeDeleteModal() {
+    setIsModalOpen(false)
+  }
+
 
   return (
     <div className="h-screen">
       {octopusData && (
         <>
-          {isAdmin() &&
-            <button onClick={handleDelete} className="btn btn-error">Delete</button>
-          }
+          {isAdmin() && (
+            <>
+              <button onClick={openDeleteModal} className="btn btn-error">Delete</button>
+              {isModalOpen && (
+                <div className="modal modal-open sm:modal-middle">
+                  <div className="modal-box">
+                    <button onClick={closeDeleteModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    <h2 className="font-bold text-lg">{octopusData.name}</h2>
+                    <p className="py-4">Are you sure you want to delete this Octopus?</p>
+                    <div className="modal-action">
+                      <button onClick={handleDelete} className="btn btn-error">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
 
 
           <div className="flex justify-center items-center mt-24">
