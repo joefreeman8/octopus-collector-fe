@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { editSingleOctopus } from "../../lib/api"
 
-
 export default function OctopusEdit({
   id,
   name,
@@ -31,7 +30,7 @@ export default function OctopusEdit({
       setIsComplete(true)
       setIsEditMode(false)
     } catch (err) {
-      console.log(err)
+      console.log(err.response.data)
     }
   }
 

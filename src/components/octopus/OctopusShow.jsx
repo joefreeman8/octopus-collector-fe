@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import SightingShow from "../sightings/SightingShow"
 import AddSighting from "../sightings/AddSighting"
 import OctopusDelete from "./OctopusDelete"
@@ -41,12 +41,13 @@ export default function OctopusShow() {
   return (
     <div className="h-screen">
       {octopusData && (
-        <>
+        <div className="mt-5">
+          <Link className="mt-5 ml-5 mr-2 btn btn-accent" to={'/octopus'}>Go Back</Link>
           {isAdmin() && (
             <>
               {
                 isEditMode ? (
-                  <button className="btn btn-warning mr-2 btn-disabled" > Edit</button>
+                  <button className="btn btn-warning mr-2 btn-disabled"> Edit</button>
                 ) : (
                   <button onClick={activateEditMode} className="btn btn-warning mr-2">Edit</button>
                 )
@@ -54,7 +55,7 @@ export default function OctopusShow() {
               <OctopusDelete id={id} octopusName={octopusData.name} />
             </>
           )}
-          <div className="flex justify-center items-center mt-24">
+          <div className="flex justify-center items-center mt-8">
             <div className="text-center flex flex-col md:flex-row gap-4 justify-center md:items-start">
               <div className="p-4 md:w-1/2">
                 <div className="card bg-base-100 bg-opacity-90 mb-5 shadow-xl">
@@ -98,7 +99,7 @@ export default function OctopusShow() {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   )
