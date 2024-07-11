@@ -57,7 +57,7 @@ export default function OctopusShow() {
           )}
           <div className="flex justify-center items-center mt-8">
             <div className="text-center flex flex-col md:flex-row gap-4 justify-center md:items-start">
-              <div className="p-4 md:w-1/2">
+              <section className="p-4 md:w-1/2">
                 <div className="card bg-base-100 bg-opacity-90 mb-5 shadow-xl">
                   <div className="card-body flex items-center">
                     {isEditMode ? (
@@ -85,8 +85,8 @@ export default function OctopusShow() {
                     )}
                   </div>
                 </div>
-              </div>
-              <div className="card px-4 md:w-1/2">
+              </section>
+              <section className="card px-4 md:w-1/2">
                 <div className="card card-body space-y-4 flex justify-center items-center md:w-full" >
                   <SightingShow
                     sightings={octopusData.sightings}
@@ -97,7 +97,7 @@ export default function OctopusShow() {
                   />
                   <AddSighting id={id} setSightingAdded={setSightingAdded} />
                 </div>
-              </div>
+              </section>
             </div>
           </div>
         </div>

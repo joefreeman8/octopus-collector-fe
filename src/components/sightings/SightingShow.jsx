@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { isAdmin, isOwner } from '../../lib/auth';
-import { deleteSighting } from '../../lib/api';
+import SightingDelete from './SightingDelete';
 
 export default function SightingShow({ sightings, sightingsThisWeek, sightingsThisMonth, octopusName, setIsComplete }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,18 +29,6 @@ export default function SightingShow({ sightings, sightingsThisWeek, sightingsTh
     }
   }
 
-  async function handleDelete(e) {
-    const sightingId = e.target.id
-    try {
-      await deleteSighting(sightingId)
-      setIsComplete(true)
-    } catch (err) {
-      console.log(err)
-    }
-
-  }
-
-
   return (
     <>
       <h1 className="text-white text-lg font-bold">Recent Sightings</h1>
@@ -61,7 +49,8 @@ export default function SightingShow({ sightings, sightingsThisWeek, sightingsTh
       </div>
       <div className="flex justify-between items-center my-4">
         <button
-          className="btn btn-outline btn-secondary mx-2"
+          data-theme="nord"
+          className="btn btn-outline btn-circle btn-accent mx-2"
           onClick={prevPage}
           disabled={currentPage === 1}
         >
@@ -84,13 +73,10 @@ export default function SightingShow({ sightings, sightingsThisWeek, sightingsTh
                 <td>{sighting.sighting_owner.username}</td>
                 <td>
                   {(isOwner(sighting.sighting_owner.id) || isAdmin()) &&
-                    <button
+                    <SightingDelete
                       id={sighting.id}
-                      onClick={handleDelete}
-                      className='btn btn-outline btn-circle btn-sm btn-error'
-                    >
-                      x
-                    </button>
+                      setIsComplete={setIsComplete}
+                    />
                   }
                 </td>
               </tr>
@@ -98,7 +84,8 @@ export default function SightingShow({ sightings, sightingsThisWeek, sightingsTh
           </tbody>
         </table>
         <button
-          className="btn btn-outline btn-secondary mx-2"
+          data-theme="nord"
+          className="btn btn-outline btn-circle btn-accent mx-2"
           onClick={nextPage}
           disabled={currentPage === totalPages}
         >
