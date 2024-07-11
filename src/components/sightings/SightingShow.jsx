@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { isAdmin, isOwner } from '../../lib/auth';
+import { deleteSighting } from '../../lib/api';
 
-export default function SightingShow({ sightings, sightingsThisWeek, sightingsThisMonth, octopusName }) {
+export default function SightingShow({ sightings, sightingsThisWeek, sightingsThisMonth, octopusName, setIsComplete }) {
   const [currentPage, setCurrentPage] = useState(1);
   const sightingsPerPage = 5;
 
@@ -25,6 +27,17 @@ export default function SightingShow({ sightings, sightingsThisWeek, sightingsTh
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
+  }
+
+  async function handleDelete(e) {
+    const sightingId = e.target.id
+    try {
+      await deleteSighting(sightingId)
+      setIsComplete(true)
+    } catch (err) {
+      console.log(err)
+    }
+
   }
 
 
@@ -70,7 +83,15 @@ export default function SightingShow({ sightings, sightingsThisWeek, sightingsTh
                 <td>{sighting.location}</td>
                 <td>{sighting.sighting_owner.username}</td>
                 <td>
-                  <button className='btn btn-circle btn-sm btn-error'>x</button>
+                  {(isOwner(sighting.sighting_owner.id) || isAdmin()) &&
+                    <button
+                      id={sighting.id}
+                      onClick={handleDelete}
+                      className='btn btn-outline btn-circle btn-sm btn-error'
+                    >
+                      x
+                    </button>
+                  }
                 </td>
               </tr>
             ))}

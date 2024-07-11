@@ -93,6 +93,7 @@ export default function OctopusShow() {
                     sightingsThisWeek={octopusData.sightings_this_week}
                     sightingsThisMonth={octopusData.sightings_this_month}
                     octopusName={octopusData.name}
+                    setIsComplete={setIsComplete}
                   />
                   <AddSighting id={id} setSightingAdded={setSightingAdded} />
                 </div>

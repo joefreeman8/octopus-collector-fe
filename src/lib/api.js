@@ -32,6 +32,10 @@ export function postSighting(formData) {
   return axios.post(`${baseUrl}/sightings/`, formData, headers())
 }
 
+export function deleteSighting(id) {
+  return axios.delete(`${baseUrl}/sightings/${id}`, headers())
+}
+
 // * AUTH
 
 export function register(formData) {

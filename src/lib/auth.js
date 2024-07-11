@@ -39,3 +39,12 @@ export function isAdmin() {
 
   return payload.is_admin
 }
+
+export function isOwner(userId) {
+  const payload = getPayload()
+  if (!payload) return false
+
+  if (!isAuthenticated()) return false
+  return userId === payload.sub
+}
+
