@@ -10,7 +10,6 @@ export default function SightingDelete({ id, setIsComplete }) {
     } catch (err) {
       console.log(err)
     }
-
   }
 
   return (

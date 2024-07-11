@@ -8,8 +8,6 @@ export function removeToken() {
 }
 
 
-
-
 function getPayload() {
   const token = getToken()
   if (!token) {
@@ -23,6 +21,7 @@ function getPayload() {
   return JSON.parse(atob(parts[1]))
 }
 
+
 export function isAuthenticated() {
   const payload = getPayload()
   if (!payload) return false
@@ -30,6 +29,7 @@ export function isAuthenticated() {
   const now = Math.round(Date.now() / 1000)
   return now < payload.exp
 }
+
 
 export function isAdmin() {
   const payload = getPayload()
@@ -39,6 +39,7 @@ export function isAdmin() {
 
   return payload.is_admin
 }
+
 
 export function isOwner(userId) {
   const payload = getPayload()

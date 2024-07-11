@@ -10,6 +10,8 @@ function headers() {
   }
 }
 
+// * OCTOPUS
+
 export function getAllOctopus() {
   return axios.get(`${baseUrl}/octopus/`)
 }

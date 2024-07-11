@@ -3,29 +3,29 @@ import { isAdmin, isOwner } from '../../lib/auth';
 import SightingDelete from './SightingDelete';
 
 export default function SightingShow({ sightings, sightingsThisWeek, sightingsThisMonth, octopusName, setIsComplete }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const sightingsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1)
+  const sightingsPerPage = 5
 
   function formatDate(dateStr) {
-    const [year, month, day] = dateStr.split('-');
-    return `${day}-${month}-${year}`;
+    const [year, month, day] = dateStr.split('-')
+    return `${day}-${month}-${year}`
   }
 
-  const indexOfLastSighting = currentPage * sightingsPerPage;
-  const indexOfFirstSighting = indexOfLastSighting - sightingsPerPage;
-  const currentSightings = sightings.slice(indexOfFirstSighting, indexOfLastSighting);
+  const indexOfLastSighting = currentPage * sightingsPerPage
+  const indexOfFirstSighting = indexOfLastSighting - sightingsPerPage
+  const currentSightings = sightings.slice(indexOfFirstSighting, indexOfLastSighting)
 
-  const totalPages = Math.ceil(sightings.length / sightingsPerPage);
+  const totalPages = Math.ceil(sightings.length / sightingsPerPage)
 
   function nextPage() {
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+      setCurrentPage(currentPage + 1)
     }
   }
 
   function prevPage() {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+      setCurrentPage(currentPage - 1)
     }
   }
 
