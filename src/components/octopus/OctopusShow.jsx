@@ -32,6 +32,7 @@ export default function OctopusShow() {
     fetchData()
   }, [id, sightingAdded, isComplete])
 
+  console.log(octopusData)
 
   function activateEditMode() {
     setIsEditMode(true)
@@ -84,6 +85,7 @@ export default function OctopusShow() {
                       </>
                     )}
                   </div>
+                  <img src={octopusData.images[0].document} alt={octopusData.images[0].title} />
                 </div>
               </section>
               <section className="card px-4 md:w-1/2">
