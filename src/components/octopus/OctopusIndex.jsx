@@ -10,13 +10,11 @@ export default function OctopusIndex() {
   async function fetchOctopusData() {
     try {
       const { data } = await getAllOctopus()
-      console.log(data)
       setOctopusData(data)
     } catch (e) {
       console.log(e)
     }
   }
-  console.log(octopusData)
 
   useEffect(() => {
     fetchOctopusData()
