@@ -49,7 +49,10 @@ export default function AddImage({ id, setIsComplete }) {
 
   return (
     <>
-      <button data-theme='nord' onClick={openPhotoModal} className="btn btn-warning">Add Photo</button>
+      <div className="w-5/6">
+        <h2 className="text-white text-lg font-bold mt-5">Add Photo</h2>
+        <button data-theme='nord' onClick={openPhotoModal} className="btn btn-info w-5/6 mt-3">Add Photo</button>
+      </div>
       {isModalOpen && (
         <div className="modal modal-open sm:modal-middle">
           <div className="modal-box">
