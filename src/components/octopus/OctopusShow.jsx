@@ -6,6 +6,7 @@ import OctopusDelete from "./OctopusDelete"
 import { getSingleOctopus } from "../../lib/api"
 import { isAdmin } from "../../lib/auth"
 import OctopusEdit from "./OctopusEdit"
+import ImagesShow from "../images/ImagesShow"
 
 
 export default function OctopusShow() {
@@ -84,27 +85,8 @@ export default function OctopusShow() {
                       </>
                     )}
                   </div>
-                  {/* {octopusData.images.length > 0 && (
-                    <img src={octopusData.images[0].document} alt={octopusData.images[0].title} />
-                  )} */}
                 </div>
-                <div className="hidden sm:grid">
-                  {octopusData.images && (
-                    <div className="mt-5 sm:grid sm:grid-cols-2 sm:gap-3">
-                      {octopusData.images.map((photo) => (
-                        <div key={photo.id} className="card card-compact bg-base-300 shadow-xl w-full">
-                          <figure className="">
-                            <img className="h-56 2xl:h-80 w-full" src={photo.document} alt={photo.title} />
-                          </figure>
-                          <div className="card-body text-center flex items-center">
-                            <p className="card-title justify-center text-sm">{photo.title}</p>
-                            <p>By: {photo.image_owner.username}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                <ImagesShow images={octopusData.images} />
               </section>
               <section className="card px-4 md:w-1/2">
                 <div className="card card-body space-y-4 flex justify-center items-center md:w-full" >
