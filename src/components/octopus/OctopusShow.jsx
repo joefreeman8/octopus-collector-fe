@@ -102,10 +102,12 @@ export default function OctopusShow() {
                     setIsComplete={setIsComplete}
                   />
                   {isLoggedIn &&
-                    <AddSighting id={id} setSightingAdded={setSightingAdded} />
+                    <>
+                      <AddSighting id={id} setSightingAdded={setSightingAdded} />
+                      <AddImage id={octopusData.id} setIsComplete={setIsComplete} />
+                    </>
                   }
                 </div>
-                <AddImage id={octopusData.id} setIsComplete={setIsComplete} />
               </section>
             </div>
           </div>
