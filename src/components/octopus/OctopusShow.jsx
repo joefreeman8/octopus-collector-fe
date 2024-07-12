@@ -4,7 +4,7 @@ import SightingShow from "../sightings/SightingShow"
 import AddSighting from "../sightings/AddSighting"
 import OctopusDelete from "./OctopusDelete"
 import { getSingleOctopus } from "../../lib/api"
-import { isAdmin } from "../../lib/auth"
+import { isAdmin, isAuthenticated } from "../../lib/auth"
 import OctopusEdit from "./OctopusEdit"
 import ImagesShow from "../images/ImagesShow"
 
@@ -17,6 +17,7 @@ export default function OctopusShow() {
   const [isComplete, setIsComplete] = useState(false)
 
   const { id } = useParams()
+  const isLoggedIn = isAuthenticated()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -97,7 +98,9 @@ export default function OctopusShow() {
                     octopusName={octopusData.name}
                     setIsComplete={setIsComplete}
                   />
-                  <AddSighting id={id} setSightingAdded={setSightingAdded} />
+                  {isLoggedIn &&
+                    <AddSighting id={id} setSightingAdded={setSightingAdded} />
+                  }
                 </div>
               </section>
             </div>
