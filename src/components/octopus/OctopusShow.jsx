@@ -3,11 +3,12 @@ import { useParams, Link } from "react-router-dom"
 import SightingShow from "../sightings/SightingShow"
 import AddSighting from "../sightings/AddSighting"
 import OctopusDelete from "./OctopusDelete"
-import { getSingleOctopus, postImage } from "../../lib/api"
+import { getSingleOctopus } from "../../lib/api"
 import { isAdmin, isAuthenticated } from "../../lib/auth"
 import OctopusEdit from "./OctopusEdit"
 import ImagesShow from "../images/ImagesShow"
-import { v4 as uuidv4 } from 'uuid'
+import AddImage from "../images/AddImage"
+
 
 
 export default function OctopusShow() {
@@ -41,39 +42,7 @@ export default function OctopusShow() {
     setIsEditMode(true)
   }
 
-  const initialData = {
-    title: '',
-    document: null,
-    octopus: id,
-  }
-  const [formData, setFormData] = useState(initialData)
 
-
-  function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-
-  const handleImageChange = (e) => {
-    const myFile = e.target.files[0]
-    const blob = myFile.slice(0, myFile.size)
-    const fileExt = myFile.name.split('.').pop()
-    const newFile = new File([blob], `${uuidv4()}.${fileExt}`, { type: `${myFile.type}` })
-    setFormData({ ...formData, document: newFile })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      await postImage(formData)
-      setIsComplete(true)
-      setFormData(initialData)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  console.log(formData)
   return (
     <div className="h-screen">
       {octopusData && (
@@ -136,32 +105,7 @@ export default function OctopusShow() {
                     <AddSighting id={id} setSightingAdded={setSightingAdded} />
                   }
                 </div>
-                <div className="card bg-base-100 card-body mt-5 shadow-lg">
-                  <h2 className="md:mt-4 text-white text-lg font-bold">Add Photo</h2>
-                  <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center space-y-4 w-full mt-5">
-                    <label className="input input-bordered flex items-center w-5/6 text-sm bg-base-100" htmlFor="title">
-                      <span className="font-bold">Image Title:</span>
-                      <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        value={formData.title}
-                        onChange={handleChange}
-                        required
-                        className="p-2 bg-base-100 "
-                      />
-                    </label>
-                    <input
-                      type="file"
-                      id="image"
-                      accept="image/png, image/jpeg"
-                      onChange={handleImageChange}
-                      required
-                      className="file-input file-input-bordered w-5/6"
-                    />
-                    <button type="submit" className="btn btn-secondary w-5/6">Add Photo</button>
-                  </form>
-                </div>
+                <AddImage id={octopusData.id} setIsComplete={setIsComplete} />
               </section>
             </div>
           </div>
