@@ -47,3 +47,14 @@ export function register(formData) {
 export function login(formData) {
   return axios.post(`${baseUrl}/auth/login/`, formData)
 }
+
+// * IMAGES
+
+export function postImage(formData) {
+  return axios.post(`${baseUrl}/images/`, formData, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      "Content-Type": "multipart/form-data"
+    }
+  })
+}

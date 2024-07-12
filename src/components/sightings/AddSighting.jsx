@@ -18,6 +18,7 @@ export default function AddSighting({ id, setSightingAdded }) {
       const response = await postSighting(formData)
       console.log(response)
       setSightingAdded(true)
+      setFormData(initialState)
     } catch (err) {
       const errorMessage = err.response.data
       Object.values(errorMessage).forEach(error => {
