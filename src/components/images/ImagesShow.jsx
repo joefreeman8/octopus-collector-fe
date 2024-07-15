@@ -53,8 +53,9 @@ export default function ImagesShow({ images }) {
     setModalImage(null)
   }
 
-  function formatDate(isoString) {
-    return isoString.split('T')[0].split('-').reverse().join('-')
+  function formatDate(dateStr) {
+    const [year, month, day] = dateStr.split('-')
+    return `${day}-${month}-${year}`
   }
 
   return (
