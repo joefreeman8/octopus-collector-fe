@@ -2,7 +2,9 @@ import { useState } from "react"
 
 export default function ImagesShow({ images }) {
 
-  // * CAROUSAL LOGIC
+
+  // * CAROUSEL LOGIC
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const goToPreviousImageCarousal = () => {
@@ -13,7 +15,8 @@ export default function ImagesShow({ images }) {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
   }
 
-  // * PAGINATION LOGIC
+  // * PAGINATION LOGIC 
+
   const [currentPage, setCurrentPage] = useState(1)
   const imagesPerPage = 4
 
@@ -23,23 +26,42 @@ export default function ImagesShow({ images }) {
 
   const totalPages = Math.ceil(images.length / imagesPerPage)
 
-  function nextPage() {
+  const nextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1)
     }
   }
 
-  function prevPage() {
+  const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1)
     }
+  }
+
+
+  // * MODAL LOGIC
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalImage, setModalImage] = useState(null)
+
+  const openImageModal = (image) => {
+    setModalImage(image)
+    setIsModalOpen(true)
+  }
+
+  const closeImageModal = () => {
+    setIsModalOpen(false)
+    setModalImage(null)
+  }
+
+  function formatDate(isoString) {
+    return isoString.split('T')[0].split('-').reverse().join('-')
   }
 
   return (
     <>
       <div className="mt-5 sm:grid sm:grid-cols-2 sm:gap-3">
         {/* Carousel for small screens */}
-        <div className="flex sm:hidden ">
+        <div className="flex sm:hidden">
           {images && images.length > 0 && (
             <div className="carousel-item relative w-full card card-compact bg-base-100 bg-opacity-90 shadow-xl text-center">
               <figure>
@@ -56,6 +78,7 @@ export default function ImagesShow({ images }) {
           )}
         </div>
       </div>
+
       {/* Grid for Larger Screens */}
       <div className="hidden sm:grid">
         <div className="flex justify-between items-center my-4">
@@ -70,13 +93,16 @@ export default function ImagesShow({ images }) {
           {images && (
             <div className="mt-5 sm:grid sm:grid-cols-2 sm:gap-3">
               {currentImage.map((image) => (
-                <div key={image.id} className="card card-compact bg-base-100 bg-opacity-90 shadow-xl w-full">
+                <div
+                  key={image.id}
+                  className="card card-compact bg-base-100 bg-opacity-90 shadow-xl w-full"
+                  onClick={() => openImageModal(image)}
+                >
                   <figure className="">
                     <img className="h-56 2xl:h-80 w-full" src={image.document} alt={image.title} />
                   </figure>
                   <div className="card-body text-center flex items-center">
                     <p className="card-title justify-center text-sm">{image.title}</p>
-                    <p>By: {image.image_owner.username}</p>
                   </div>
                 </div>
               ))}
@@ -92,6 +118,19 @@ export default function ImagesShow({ images }) {
           </button>
         </div>
       </div>
+
+      {isModalOpen && modalImage && (
+        <div className="modal modal-open" onClick={closeImageModal}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+            <figure>
+              <img className="w-full h-auto" src={modalImage.document} alt={modalImage.title} />
+            </figure>
+            <h2 className="font-bold text-lg mt-5">{modalImage.title}</h2>
+            <p>Taken by: {modalImage.image_owner.username}</p>
+            <p>Added on: {formatDate(modalImage.created_at)}</p>
+          </div>
+        </div>
+      )}
     </>
   )
 }

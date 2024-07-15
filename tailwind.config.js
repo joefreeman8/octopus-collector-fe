@@ -24,9 +24,7 @@ export default {
   daisyui: {
     themes: [
       "aqua",
-      "light",
-      "dark",
-      "nord"
+      "nord",
     ],
   },
 }
