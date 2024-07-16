@@ -74,7 +74,7 @@ export default function AddImage({ id, setIsComplete }) {
               <input
                 type="file"
                 id="image"
-                accept="image/png, image/jpeg"
+                accept="image/png, image/jpeg, image/webp"
                 onChange={handleImageChange}
                 required
                 className="file-input file-input-bordered w-5/6"
