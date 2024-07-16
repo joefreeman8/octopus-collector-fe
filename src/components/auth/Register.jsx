@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { register } from "../../lib/api"
 
 
@@ -14,6 +14,7 @@ export default function Register({ toast }) {
   }
 
   const [formData, setFormData] = useState(initialState)
+  const navigate = useNavigate()
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -24,6 +25,7 @@ export default function Register({ toast }) {
     try {
       const res = await register(formData)
       console.log(res)
+      navigate('/login')
     } catch (err) {
       const errorMessage = err.response.data
       console.log(errorMessage)

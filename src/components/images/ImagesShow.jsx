@@ -98,7 +98,7 @@ export default function ImagesShow({ images }) {
               {currentImage.map((image) => (
                 <div
                   key={image.id}
-                  className="card card-compact bg-base-100 bg-opacity-90 shadow-xl w-full"
+                  className="card card-compact bg-base-100 bg-opacity-90 shadow-xl w-full cursor-pointer"
                   onClick={() => openImageModal(image)}
                 >
                   <figure className="">
