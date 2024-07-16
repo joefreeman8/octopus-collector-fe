@@ -54,9 +54,11 @@ export default function ImagesShow({ images }) {
   }
 
   function formatDate(dateStr) {
-    const [year, month, day] = dateStr.split('-')
+    const dateOnly = dateStr.split('T')[0]
+    const [year, month, day] = dateOnly.split('-')
     return `${day}-${month}-${year}`
   }
+
 
   return (
     <>

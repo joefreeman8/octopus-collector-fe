@@ -67,7 +67,7 @@ export default function Register({ toast }) {
               <span className="label-text">Email</span>
             </label>
             <input
-              type="text"
+              type="email"
               placeholder="Enter Email"
               className="input input-bordered"
               name="email"

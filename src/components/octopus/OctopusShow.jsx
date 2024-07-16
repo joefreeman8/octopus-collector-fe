@@ -36,7 +36,6 @@ export default function OctopusShow() {
     fetchData()
   }, [id, sightingAdded, isComplete])
 
-  console.log(octopusData)
 
   function activateEditMode() {
     setIsEditMode(true)
