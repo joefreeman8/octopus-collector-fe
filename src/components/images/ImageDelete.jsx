@@ -24,7 +24,7 @@ export default function ImageDelete({ modalOctopus, closeImageModal, setIsComple
       {!deleteCheck ? (
         <button className="btn btn-error mt-3" onClick={checkDelete}>Delete Octopus</button>
       ) : (
-        <button className="btn btn-error mt-3" onClick={handleDelete}>Confirm you want to delete, it will be gone forever</button>
+        <button className="btn btn-error mt-3" onClick={handleDelete}>Are you sure? It will be gone forever</button>
       )}
     </>
   )
