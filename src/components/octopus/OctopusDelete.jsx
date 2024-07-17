@@ -55,7 +55,7 @@ export default function OctopusDelete({ id, octopusName }) {
           <div className="modal-box">
             <button onClick={closeDeleteModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             <h2 className="font-bold text-lg">{octopusName}</h2>
-            <p className="py-4">Are you sure you want to delete this Octopus?</p>
+            <p className="py-4">Are you sure you want to delete this Octopus, this action is permanent?</p>
             <div className="modal-action">
               <button onClick={handleDelete} className="btn btn-error">Delete</button>
             </div>
