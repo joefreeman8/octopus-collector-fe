@@ -89,7 +89,7 @@ export default function OctopusShow() {
                     )}
                   </div>
                 </div>
-                <ImagesShow images={octopusData.images} />
+                <ImagesShow images={octopusData.images} setIsComplete={setIsComplete} />
               </section>
               <section className="card px-4 md:w-1/2">
                 <div className="card card-body space-y-4 flex justify-center items-center md:w-full" >

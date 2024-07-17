@@ -58,3 +58,7 @@ export function postImage(formData) {
     }
   })
 }
+
+export function deleteOctopusImage(id) {
+  return axios.delete(`${baseUrl}/images/${id}/`, headers())
+}

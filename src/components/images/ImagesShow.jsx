@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { isAdmin, isOwner } from "../../lib/auth"
+import ImageDelete from "./ImageDelete"
 
-export default function ImagesShow({ images }) {
+export default function ImagesShow({ images, setIsComplete }) {
 
 
   // * CAROUSEL LOGIC
@@ -41,16 +43,17 @@ export default function ImagesShow({ images }) {
 
   // * MODAL LOGIC
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [modalImage, setModalImage] = useState(null)
+  const [modalOctopus, setModalOctopus] = useState(null)
 
-  const openImageModal = (image) => {
-    setModalImage(image)
+  function openImageModal(image) {
+    setModalOctopus(image)
     setIsModalOpen(true)
+    console.log(image)
   }
 
-  const closeImageModal = () => {
+  function closeImageModal() {
     setIsModalOpen(false)
-    setModalImage(null)
+    setModalOctopus(null)
   }
 
   function formatDate(dateStr) {
@@ -122,15 +125,22 @@ export default function ImagesShow({ images }) {
         </div>
       </div>
 
-      {isModalOpen && modalImage && (
+      {isModalOpen && modalOctopus && (
         <div className="modal modal-open" onClick={closeImageModal}>
           <div className="modal-box" onClick={(e) => e.stopPropagation()}>
             <figure>
-              <img className="w-full h-auto" src={modalImage.document} alt={modalImage.title} />
+              <img className="w-full h-auto" src={modalOctopus.document} alt={modalOctopus.title} />
             </figure>
-            <h2 className="font-bold text-lg mt-5">{modalImage.title}</h2>
-            <p>Taken by: {modalImage.image_owner.username}</p>
-            <p>Added on: {formatDate(modalImage.created_at)}</p>
+            <h2 className="font-bold text-lg mt-5">{modalOctopus.title}</h2>
+            <p>Taken by: {modalOctopus.image_owner.username}</p>
+            <p>Added on: {formatDate(modalOctopus.created_at)}</p>
+            {(isAdmin() || isOwner(modalOctopus.image_owner.id)) && (
+              <ImageDelete
+                modalOctopus={modalOctopus}
+                closeImageModal={closeImageModal}
+                setIsComplete={setIsComplete}
+              />
+            )}
           </div>
         </div>
       )}
