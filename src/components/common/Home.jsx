@@ -23,7 +23,7 @@ export default function Home() {
 
     try {
       const { choices } = await openai.chat.completions.create({
-        model: import.meta.env.VITE_APP_OPENAI_MODE,
+        model: import.meta.env.VITE_APP_OPENAI_MODEL,
         messages: [{ role: 'user', content: 'Give me a really cool octopus fact, it can be generic or from any species if they have a unique fact.' }]
 
       })
@@ -39,32 +39,25 @@ export default function Home() {
   console.log(openAIResponse)
 
   return (
-    <div className="h-screen flex justify-center">
-      <div className="container h-screen flex flex-col items-center border">
+    <div className="h-screen flex justify-center tracking-wide">
+      <div className="container h-screen flex flex-col items-center">
         <div className="mt-5 h-1/5 flex items-end justify-center">
           <div className="flex flex-col">
             <h1 className="text-white text-4xl font-bold">Welcome to the Octopus Collector</h1>
             <p className="text-lg mt-5">Here is a hub where you can browse all the different Octopus, check out their photos & say when you spotted them!</p>
           </div>
         </div>
-        <div className="container h-4/5 mt-12 flex flex-row justify-around border">
-          <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-50">
-            <h2 className=" text-center font-bold p-5">Octopus Facts below</h2>
-            <span className="text-xs text-center font-bold italic">please note the AI occasionaly likes to give repeated answers</span>
-            <button className='btn btn-warning mt-5 mx-28' onClick={handleSubmit}>OctopusAI Button</button>
-            {openAIResponse && (
-              <p className="p-5">{openAIResponse}</p>
-            )}
-          </div>
-          <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-40">
+        <div className="container h-4/5 mt-12 flex flex-row justify-around">
+
+          <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-60 tracking-wide">
             <p className="px-5 pt-5">
               Why on Earth would somebody spend hours of their time making a project such as this I hear you ask?
             </p>
             <p className="px-5 pt-3">
-              Well there is two reasons really.
+              Well there are two reasons really.
             </p>
             <p className="px-5 pt-3">
-              Firstly, I needed to practice some coding goodness and show you that this is the guy you want to hire!
+              Firstly, I needed to practice some coding goodness and show you that this is the guy you want to <span className="tooltip text-accent underline" data-tip="pretty please">hire!</span>
             </p>
             <p className="px-5 pt-3">
               Second, Octopus are my favourite animals!
@@ -77,6 +70,14 @@ export default function Home() {
             <p className="text-xs italic text-bold p-5">
               Special shout out to squid and cuttlefish too.
             </p>
+          </div>
+          <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-60 tracking-wide">
+            <h2 className=" text-center font-bold p-5">Octopus Facts below</h2>
+            <span className="text-xs text-center font-bold italic">please note the AI occasionally likes to give repeated answers</span>
+            <button className='btn btn-accent mt-5 mx-28' onClick={handleSubmit}>OctopusAI Button</button>
+            {openAIResponse && (
+              <p className="p-5">{openAIResponse}</p>
+            )}
           </div>
         </div>
       </div>

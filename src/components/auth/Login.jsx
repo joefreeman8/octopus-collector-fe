@@ -39,7 +39,6 @@ export default function Login({ toast }) {
     } catch (err) {
       const errorMessage = err.response.data
       Object.values(errorMessage).forEach(error => {
-        console.log(error)
         toast.info(error, {
           position: "top-right",
           autoClose: 5000,
