@@ -1,5 +1,43 @@
+import OpenAI from "openai"
+import { useState } from "react"
+
 
 export default function Home() {
+
+  const [openAIResponse, setopenAIResponse] = useState(null)
+  let isSubmitting = false
+
+  const OPENAI_API_KEY = import.meta.env.VITE_APP_OPENAI_API_KEY
+
+  const openai = new OpenAI({
+    apiKey: OPENAI_API_KEY,
+    dangerouslyAllowBrowser: true
+  })
+
+
+
+  async function handleSubmit() {
+    if (isSubmitting) return // Prevent multiple submissions
+    isSubmitting = true
+    setopenAIResponse('Working on it... 🐙')
+
+    try {
+      const { choices } = await openai.chat.completions.create({
+        model: import.meta.env.VITE_APP_OPENAI_MODE,
+        messages: [{ role: 'user', content: 'Give me a really cool octopus fact, it can be generic or from any species if they have a unique fact.' }]
+
+      })
+      setopenAIResponse(choices[0].message.content)
+
+    } catch (error) {
+      console.error('Error:', error)
+    } finally {
+      isSubmitting = false // Reset the flag after request
+    }
+  }
+
+  console.log(openAIResponse)
+
   return (
     <div className="h-screen flex justify-center">
       <div className="container h-screen flex flex-col items-center border">
@@ -10,11 +48,15 @@ export default function Home() {
           </div>
         </div>
         <div className="container h-4/5 mt-12 flex flex-row justify-around border">
-          <div className="mt-5 flex h-1/3 md:w-1/4 card card-bordered bg-base-100 bg-opacity-30">
-            <p className="p-5">something else goes here</p>
-
+          <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-50">
+            <h2 className=" text-center font-bold p-5">Octopus Facts below</h2>
+            <span className="text-xs text-center font-bold italic">please note the AI occasionaly likes to give repeated answers</span>
+            <button className='btn btn-warning mt-5 mx-28' onClick={handleSubmit}>OctopusAI Button</button>
+            {openAIResponse && (
+              <p className="p-5">{openAIResponse}</p>
+            )}
           </div>
-          <div className="my-5 flex h-fit md:w-1/3 card card-bordered bg-base-100 bg-opacity-40">
+          <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-40">
             <p className="px-5 pt-5">
               Why on Earth would somebody spend hours of their time making a project such as this I hear you ask?
             </p>
