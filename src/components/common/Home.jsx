@@ -11,18 +11,30 @@ export default function Home() {
         </div>
         <div className="container h-4/5 mt-12 flex flex-row justify-around border">
           <div className="mt-5 flex h-1/3 md:w-1/4 card card-bordered bg-base-100 bg-opacity-30">
-            <p className="p-5">This project stems from my love of Octopus (weird I know), but these creatures are the aliens of our sea, something so different to a mammel, but also so incredibly smart</p>
+            <p className="p-5">something else goes here</p>
 
           </div>
-          <div className="mt-5 flex h-1/2 md:w-1/4 card card-bordered bg-base-100 bg-opacity-30">
-            <p className="px-5 pt-5">Why on Earth would somebody spend hours of their time making a project such as this I hear you ask?</p>
-            <p className="px-5 pt-3">Well there is two reasons really.</p>
-            <p className="px-5 pt-3">Firstly, I needed to practice some Django goodness and show all you guys that this is the guy you want to hire!</p>
-            <p className="px-5 pt-3">And second, Octopus are my favourite animals!
-              <span className="italic"> (weird I know)</span>
-              , I see these creatures as the aliens of our planet. Something which is so different to a mammal, yet still incredibly smart.</p>
-
-            <p className="text-xs italic text-bold p-5">Special shout out to squid and cuttlefish too.</p>
+          <div className="my-5 flex h-fit md:w-1/3 card card-bordered bg-base-100 bg-opacity-40">
+            <p className="px-5 pt-5">
+              Why on Earth would somebody spend hours of their time making a project such as this I hear you ask?
+            </p>
+            <p className="px-5 pt-3">
+              Well there is two reasons really.
+            </p>
+            <p className="px-5 pt-3">
+              Firstly, I needed to practice some coding goodness and show you that this is the guy you want to hire!
+            </p>
+            <p className="px-5 pt-3">
+              Second, Octopus are my favourite animals!
+              <span className="italic text-sm"> (weird I know)</span>
+              , I see these creatures as the aliens of our planet. With their fluidness Octopus change shape, morph colours, swap out textures of their skin, taste with their suckers and problem solve.
+            </p>
+            <p className="px-5 pt-3">
+              While diving in Mexico I got to follow these guys around the corals and watch them hunt at night, it was an experience for me that will forever stay on my highlight reel.
+            </p>
+            <p className="text-xs italic text-bold p-5">
+              Special shout out to squid and cuttlefish too.
+            </p>
           </div>
         </div>
       </div>
