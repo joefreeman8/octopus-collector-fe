@@ -35,8 +35,8 @@ function App() {
 
 
       <Router>
-        <Navbar />
         <ToastContainer className='mt-14' />
+        <Navbar toast={toast} />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/octopus/:id' element={<OctopusShow />} />

@@ -2,11 +2,21 @@ import { Link, useNavigate } from "react-router-dom"
 import { isAuthenticated, removeToken } from "../../lib/auth"
 
 
-export default function Navbar() {
+export default function Navbar({ toast }) {
   const isLoggedIn = isAuthenticated()
   const navigate = useNavigate()
 
   function handleLogout() {
+    toast.info("Goodbye, come back soon 🐙", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    })
     removeToken()
     navigate('/')
   }
