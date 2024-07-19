@@ -71,7 +71,10 @@ export default function ImagesShow({ images, setIsComplete }) {
           {images && images.length > 0 && (
             <div className="carousel-item relative w-full card card-compact bg-base-100 bg-opacity-90 shadow-xl text-center">
               <figure>
-                <img src={images[currentImageIndex].document} alt={images[currentImageIndex].title} />
+                <img
+                  src={images[currentImageIndex].document}
+                  alt={images[currentImageIndex].title}
+                />
               </figure>
               <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <button onClick={goToPreviousImageCarousal} className="btn btn-circle btn-xs">❮</button>
@@ -79,6 +82,13 @@ export default function ImagesShow({ images, setIsComplete }) {
               </div>
               <div className="card-body flex justify-center items-center">
                 <p className="card-title">{images[currentImageIndex].title}</p>
+                <p>Taken by: {images[currentImageIndex].image_owner.username}</p>
+                <p>Added on: {formatDate(images[currentImageIndex].created_at)}</p>
+                {(isAdmin() || isOwner(images[currentImageIndex].image_owner.id)) && (
+                  <ImageDelete
+                    setIsComplete={setIsComplete}
+                  />
+                )}
               </div>
             </div>
           )}

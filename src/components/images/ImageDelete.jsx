@@ -22,9 +22,9 @@ export default function ImageDelete({ modalOctopus, closeImageModal, setIsComple
   return (
     <>
       {!deleteCheck ? (
-        <button className="btn btn-error mt-3" onClick={checkDelete}>Delete Octopus</button>
+        <button className="btn btn-sm md:btn-md btn-error mt-3" onClick={checkDelete}>Delete Octopus</button>
       ) : (
-        <button className="btn btn-error mt-3" onClick={handleDelete}>Are you sure? It will be gone forever</button>
+        <button className="btn btn-sm md:btn-md btn-error mt-3" onClick={handleDelete}>Are you sure? It will be gone forever</button>
       )}
     </>
   )
