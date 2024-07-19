@@ -75,7 +75,8 @@ export default function AddSighting({ id, setSightingAdded }) {
           onChange={handleChange}
           className="select select-bordered w-5/6"
         >
-          <option disabled value="location">Location</option>
+          <option disabled value="location">Choose Location</option>
+          <option value="---">---</option>
           {SEAS_OPTIONS.map(sea => (
             <option key={sea.location} value={sea.location}>
               {sea.location}

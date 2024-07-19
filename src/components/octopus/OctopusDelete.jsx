@@ -51,7 +51,7 @@ export default function OctopusDelete({ id, octopusName }) {
     <>
       <button onClick={openDeleteModal} className="btn btn-error">Delete</button>
       {isModalOpen && (
-        <div className="modal modal-open sm:modal-middle">
+        <div className="modal modal-open modal-bottom sm:modal-middle">
           <div className="modal-box">
             <button onClick={closeDeleteModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             <h2 className="font-bold text-lg">{octopusName}</h2>
