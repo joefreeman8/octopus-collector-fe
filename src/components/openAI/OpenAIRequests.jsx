@@ -59,8 +59,6 @@ export default function OpenAIRequests() {
     }
   }
 
-  console.log(openAIResponse)
-
   return (
     <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-60 tracking-wide">
       <h2 className=" text-center text-lg font-bold p-5">Octopus Facts</h2>
