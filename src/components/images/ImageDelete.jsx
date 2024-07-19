@@ -1,10 +1,6 @@
-import { useState } from "react"
 import { deleteOctopusImage } from "../../lib/api"
 
-
 export default function ImageDelete({ modalOctopus, closeImageModal, setIsComplete, setDeleteCheck, deleteCheck }) {
-
-
 
   function checkDelete() {
     setDeleteCheck(true)
