@@ -32,7 +32,7 @@ export default function SightingShow({ sightings, sightingsThisWeek, sightingsTh
   return (
     <>
       <h1 className="text-white text-lg font-bold">Recent Sightings</h1>
-      <div className='w-5/6 md:w-full'>
+      <div className='md:w-full'>
         {sightingsThisWeek ? (
           <div data-theme='nord' className="flex justify-center card card-normal bg-accent p-4">
             The {octopusName} has been spotted {sightingsThisWeek} times this week!
