@@ -6,7 +6,7 @@ export default function AddSighting({ id, setSightingAdded }) {
 
   const initialState = {
     date: '',
-    location: '',
+    location: 'location',
     octopus: Number(id),
   }
 
@@ -75,7 +75,7 @@ export default function AddSighting({ id, setSightingAdded }) {
           onChange={handleChange}
           className="select select-bordered w-5/6"
         >
-          <option value="">Location</option>
+          <option disabled value="location">Location</option>
           {SEAS_OPTIONS.map(sea => (
             <option key={sea.location} value={sea.location}>
               {sea.location}

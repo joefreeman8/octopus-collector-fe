@@ -60,8 +60,8 @@ export default function OctopusShow() {
             </>
           )}
           <div className="flex justify-center items-center mt-8">
-            <div className="text-center flex flex-col md:flex-row gap-4 justify-center md:items-start">
-              <section className="p-4 md:w-1/2">
+            <div className="text-center w-full flex flex-col md:flex-row gap-4 items-center md:items-start md:w-max">
+              <section className="p-4 flex flex-col md:w-1/2">
                 <div className="card bg-base-100 bg-opacity-90 mb-5 shadow-xl">
                   <div className="card-body flex items-center">
                     {isEditMode ? (
@@ -79,10 +79,10 @@ export default function OctopusShow() {
                       <>
                         <h1 className="text-white card-title text-center w-fit">
                           {octopusData.name}
-                          <span className="text-sm">
-                            ({octopusData.scientific_name})
-                          </span>
                         </h1>
+                        <span className="text-sm">
+                          ({octopusData.scientific_name})
+                        </span>
                         <p><strong className="text-white">Bio:</strong> {octopusData.description}</p>
                         <p><strong className="text-white">Life span:</strong> {octopusData.life_span} years.</p>
                       </>
@@ -92,7 +92,7 @@ export default function OctopusShow() {
                 <ImagesShow images={octopusData.images} setIsComplete={setIsComplete} />
               </section>
               <section className="card px-4 md:w-1/2">
-                <div className="card card-body space-y-4 flex justify-center items-center md:w-full" >
+                <div className="card card-body space-y-4 flex justify-center items-center md:w-max" >
                   <SightingShow
                     sightings={octopusData.sightings}
                     sightingsThisWeek={octopusData.sightings_this_week}
