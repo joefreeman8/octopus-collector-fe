@@ -8,13 +8,16 @@ export default function ImagesShow({ images, setIsComplete }) {
   // * CAROUSEL LOGIC
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [deleteCheck, setDeleteCheck] = useState(false)
 
   const goToPreviousImageCarousal = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : images.length - 1))
+    setDeleteCheck(false)
   }
 
   const goToNextImageCarousal = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+    setDeleteCheck(false)
   }
 
   // * PAGINATION LOGIC 
@@ -87,6 +90,8 @@ export default function ImagesShow({ images, setIsComplete }) {
                 {(isAdmin() || isOwner(images[currentImageIndex].image_owner.id)) && (
                   <ImageDelete
                     setIsComplete={setIsComplete}
+                    deleteCheck={deleteCheck}
+                    setDeleteCheck={setDeleteCheck}
                   />
                 )}
               </div>

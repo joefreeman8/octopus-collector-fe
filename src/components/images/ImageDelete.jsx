@@ -2,13 +2,14 @@ import { useState } from "react"
 import { deleteOctopusImage } from "../../lib/api"
 
 
-export default function ImageDelete({ modalOctopus, closeImageModal, setIsComplete }) {
+export default function ImageDelete({ modalOctopus, closeImageModal, setIsComplete, setDeleteCheck, deleteCheck }) {
 
-  const [deleteCheck, setDeleteCheck] = useState(false)
+
 
   function checkDelete() {
     setDeleteCheck(true)
   }
+
   async function handleDelete() {
     try {
       await deleteOctopusImage(modalOctopus.id)
