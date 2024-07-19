@@ -60,7 +60,7 @@ export default function OpenAIRequests() {
   }
 
   return (
-    <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-60 tracking-wide">
+    <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-60">
       <h2 className=" text-center text-lg font-bold p-5">Octopus Facts</h2>
       <span className="text-xs text-center font-bold italic">please note openAI occasionally likes to give repeated answers</span>
       <button className='btn btn-accent my-5 mx-28' onClick={handleSubmit}>OctopusAI Button</button>

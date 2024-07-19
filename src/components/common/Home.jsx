@@ -5,7 +5,7 @@ export default function Home() {
 
 
   return (
-    <div className="h-screen flex justify-center tracking-wide">
+    <div className="h-screen flex justify-center">
       <div className="container h-screen flex flex-col items-center">
         <div className="mt-5 h-1/5 flex items-end justify-center">
           <div className="flex flex-col">
@@ -15,7 +15,7 @@ export default function Home() {
         </div>
         <div className="container h-4/5 mt-12 flex flex-row justify-around">
 
-          <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-60 tracking-wide">
+          <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-60">
             <p className="px-5 pt-5">
               Why on Earth would somebody spend hours of their time making a project such as this I hear you ask?
             </p>
