@@ -80,7 +80,7 @@ Here I have built a fullstack app where you can view some Octopus, add your own 
 ![Screen Grab of Delete Octopus as Admin](./src/assets/adminuserdelete.png)
 
 
-### Any logged in user
+### Any logged in user can add a photo
 
 ![Screen Grab of Add Image as user](./src/assets/addphoto.png)
 
