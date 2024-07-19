@@ -6,6 +6,7 @@ export default function Home() {
 
   return (
     <div className="h-screen flex justify-center">
+      <div id="octocat"></div>
       <div className="container h-screen flex flex-col items-center">
         <div className="mt-5 h-1/5 flex items-end justify-center">
           <div className="flex flex-col">
