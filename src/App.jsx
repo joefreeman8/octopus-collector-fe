@@ -27,14 +27,12 @@ function App() {
   ]
 
   return (
-    <div data-theme="aqua" className='h-full bg-custom-gradient overflow-auto tracking-wide'>
-      {/* Generate Bubbles on background */}
-      {bubbles.map((bubbleClass, idx) => (
-        <div key={idx} className={`bubble ${bubbleClass}`}></div>
-      ))}
-
-
-      <Router>
+    <Router>
+      <div data-theme="aqua" className='ocean h-full overflow-x-hidden tracking-wide'>
+        {/* Generate Bubbles on background */}
+        {bubbles.map((bubbleClass, idx) => (
+          <div key={idx} className={`bubble ${bubbleClass}`}></div>
+        ))}
         <ToastContainer className='mt-14' />
         <Navbar toast={toast} />
         <Routes>
@@ -44,9 +42,9 @@ function App() {
           <Route path='/sign-up' element={<Register toast={toast} />} />
           <Route path='/login' element={<Login toast={toast} />} />
         </Routes>
-      </Router>
+      </div>
+    </Router>
 
-    </div>
   )
 }
 

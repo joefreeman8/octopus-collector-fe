@@ -21,7 +21,7 @@ export default function Navbar({ toast }) {
     navigate('/')
   }
   return (
-    <nav className="navbar bg-base-200 shadow-lg">
+    <nav className="navbar bg-base-200 shadow-lg w-full">
       <div className="navbar-start gap-3">
         <Link className="btn hover:text-nord-warning" to='/'>Home</Link>
         <Link className="btn hover:text-nord-warning" to='/octopus'>View Octopus</Link>
