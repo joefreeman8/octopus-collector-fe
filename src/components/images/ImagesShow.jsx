@@ -97,7 +97,8 @@ export default function ImagesShow({ images, setIsComplete }) {
 
       {/* Grid for Larger Screens */}
       <div className="hidden sm:grid">
-        <div className="flex justify-between items-center my-4">
+        <p className="mt-4 italic">Click image for more details</p>
+        <div className="flex justify-between items-center mb-4">
           <button
             data-theme="nord"
             className="btn btn-outline btn-circle btn-accent mx-2"
