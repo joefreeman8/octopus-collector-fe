@@ -91,8 +91,8 @@ export default function OctopusShow() {
                 </div>
                 <ImagesShow images={octopusData.images} setIsComplete={setIsComplete} />
               </section>
-              <section className="card px-4 md:w-1/2">
-                <div className="card card-body space-y-4 flex justify-center items-center md:w-max" >
+              <section className="card md:w-1/2">
+                <div className="card card-body flex justify-center items-center md:w-max" >
                   <SightingShow
                     sightings={octopusData.sightings}
                     sightingsThisWeek={octopusData.sightings_this_week}

@@ -47,50 +47,77 @@ export default function SightingShow({ sightings, sightingsThisWeek, sightingsTh
           </div>
         )}
       </div>
-      <div className="flex justify-between items-center my-4">
+      <div className="flex flex-col md:flex-row justify-between items-center my-4">
+
+        {/* Buttons for mobile view */}
+        <div className="flex justify-center md:hidden order-2 my-4">
+          <button
+            data-theme="nord"
+            className="btn btn-outline btn-circle btn-accent mx-2"
+            onClick={prevPage}
+            disabled={currentPage === 1}
+          >
+            «
+          </button>
+          <button
+            data-theme="nord"
+            className="btn btn-outline btn-circle btn-accent mx-2"
+            onClick={nextPage}
+            disabled={currentPage === totalPages}
+          >
+            »
+          </button>
+        </div>
+
+        {/* FULL SCREEN BUTTON <- */}
         <button
           data-theme="nord"
-          className="btn btn-outline btn-circle btn-accent mx-2"
+          className="hidden btn btn-outline btn-circle btn-accent order-0 md:block mx-2"
           onClick={prevPage}
           disabled={currentPage === 1}
         >
           «
         </button>
-        <table className="table table-zebra mx-4">
-          <thead className="text-sm">
-            <tr>
-              <th className="text-white">Date</th>
-              <th className="text-white">Location</th>
-              <th className="text-white">User</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentSightings.map((sighting) => (
-              <tr key={sighting.id}>
-                <td>{formatDate(sighting.date)}</td>
-                <td>{sighting.location}</td>
-                <td>{sighting.sighting_owner.username}</td>
-                <td>
-                  {(isOwner(sighting.sighting_owner.id) || isAdmin()) &&
-                    <SightingDelete
-                      id={sighting.id}
-                      setIsComplete={setIsComplete}
-                    />
-                  }
-                </td>
+        {/* Table */}
+        <div className="order-1 w-full">
+          <table className="table table-zebra w-full">
+            <thead className="text-sm">
+              <tr>
+                <th className="text-white">Date</th>
+                <th className="text-white">Location</th>
+                <th className="text-white">User</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {currentSightings.map((sighting) => (
+                <tr key={sighting.id}>
+                  <td>{formatDate(sighting.date)}</td>
+                  <td>{sighting.location}</td>
+                  <td>{sighting.sighting_owner.username}</td>
+                  <td>
+                    {(isOwner(sighting.sighting_owner.id) || isAdmin()) &&
+                      <SightingDelete
+                        id={sighting.id}
+                        setIsComplete={setIsComplete}
+                      />
+                    }
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* FULL SCREEN BUTTON -> */}
         <button
           data-theme="nord"
-          className="btn btn-outline btn-circle btn-accent mx-2"
+          className="btn btn-outline btn-circle btn-accent hidden md:block order-2 mx-2"
           onClick={nextPage}
           disabled={currentPage === totalPages}
         >
           »
         </button>
+
       </div>
     </>
   )
