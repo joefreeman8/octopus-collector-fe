@@ -15,7 +15,7 @@ export default function Home() {
         <div className="flex flex-col px-5 md:px-0 md:container md:h-4/5 md:mt-12 md:flex-row md:justify-around mb-5">
           <div className="my-5 flex md:w-1/3 card card-bordered bg-base-100 bg-opacity-60">
             <p className="px-5 pt-5">
-              Why on Earth would somebody spend hours of their time making a project such as this I hear you ask?
+              <span className="italic">&quot;Why on Earth,</span> would somebody spend hours of their time making a project such as this?&quot; I hear you ask.
             </p>
             <p className="px-5 pt-3">
               Well there are two reasons really.
