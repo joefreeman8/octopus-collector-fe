@@ -10,7 +10,8 @@ export default function OctopusIndex() {
   async function fetchOctopusData() {
     try {
       const { data } = await getAllOctopus()
-      setOctopusData(data)
+      const sortedData = data.sort((a, b) => a.id - b.id)
+      setOctopusData(sortedData)
     } catch (e) {
       console.log(e)
     }

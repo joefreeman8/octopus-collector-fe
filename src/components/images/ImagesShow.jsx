@@ -51,7 +51,6 @@ export default function ImagesShow({ images, setIsComplete }) {
   function openImageModal(image) {
     setModalOctopus(image)
     setIsModalOpen(true)
-    console.log(image)
   }
 
   function closeImageModal() {
