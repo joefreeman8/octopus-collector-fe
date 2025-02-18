@@ -2,8 +2,13 @@ import { deleteOctopusImage } from "../../lib/api"
 
 export default function ImageDelete({ modalOctopus, closeImageModal, setIsComplete, setDeleteCheck, deleteCheck }) {
 
+  console.log(deleteCheck)
+
   function checkDelete() {
+    console.log('hello')
     setDeleteCheck(true)
+    console.log('second')
+    console.log(deleteCheck)
   }
 
   async function handleDelete() {

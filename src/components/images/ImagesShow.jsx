@@ -154,6 +154,8 @@ export default function ImagesShow({ images, setIsComplete }) {
               <ImageDelete
                 modalOctopus={modalOctopus}
                 closeImageModal={closeImageModal}
+                setDeleteCheck={setDeleteCheck}
+                deleteCheck={deleteCheck}
                 setIsComplete={setIsComplete}
               />
             )}
